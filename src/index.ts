@@ -1,8 +1,15 @@
-function reverseWords(str: string): string {
-  return str
-    .split(" ")
-    .map((word: string): string => word.split("").reverse().join(""))
-    .join("");
+type Res = [number, number] | [];
+function countPositivesSumNegatives(input: any): Res {
+  let positiveSum: number = 0;
+  let negativeSum: number = 0;
+  if (input instanceof Array && input.length)
+    input.forEach((num: number) => {
+      if (num > 0) positiveSum += 1;
+      else negativeSum += num;
+    });
+  else return [];
+  return [positiveSum, negativeSum];
 }
 
-console.log(reverseWords(""));
+const result = countPositivesSumNegatives(null);
+console.log(result);
