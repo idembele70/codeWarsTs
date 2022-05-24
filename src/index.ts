@@ -1,15 +1,4 @@
-type Res = [number, number] | [];
-function countPositivesSumNegatives(input: any): Res {
-  let positiveSum: number = 0;
-  let negativeSum: number = 0;
-  if (input instanceof Array && input.length)
-    input.forEach((num: number) => {
-      if (num > 0) positiveSum += 1;
-      else negativeSum += num;
-    });
-  else return [];
-  return [positiveSum, negativeSum];
-}
+const check = (a: Array<number | string>, x: number | string): boolean =>
+  a.find((value) => value === x) === x;
 
-const result = countPositivesSumNegatives(null);
-console.log(result);
+console.log(check([1, 2, 0], 0));
