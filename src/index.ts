@@ -1,5 +1,5 @@
-function isIsogram(str: string): boolean {
-  return new Set(str.toLowerCase()).size === str.length;
-}
-
-console.log(isIsogram("moOse"));
+console.log(
+  (function isSquare(n: number): boolean {
+    return Number.isInteger(Math.sqrt(n)) && typeof (n ** 2) === "number";
+  })(4)
+);

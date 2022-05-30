@@ -1,5 +1,4 @@
 "use strict";
-function isIsogram(str) {
-    return new Set(str.toLowerCase()).size === str.length;
-}
-console.log(isIsogram("moOse"));
+console.log((function isSquare(n) {
+    return Number.isInteger(Math.sqrt(n)) && typeof (Math.pow(n, 2)) === "number";
+})(4));
