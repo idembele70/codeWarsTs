@@ -1,5 +1,11 @@
 function fakeBin(x: string): string {
-  return x.replace(/[0-9]/g, (v) => (+v < 5 ? "0" : "1"));
+  const res: string[] = [];
+  for (let i = 0; i < x.length; i++) {
+    const element = x[i];
+    if (parseInt(element) < 5) res.push("0");
+    else res.push("1");
+  }
+  return res.join("");
 }
 
 console.log(fakeBin("45385593107843568"));
