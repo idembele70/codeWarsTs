@@ -1,11 +1,6 @@
-function fakeBin(x: string): string {
-  const res: string[] = [];
-  for (let i = 0; i < x.length; i++) {
-    const element = x[i];
-    if (parseInt(element) < 5) res.push("0");
-    else res.push("1");
+class Kata {
+  static getCount(str: string): number {
+    return [...str].filter((char) => /[aeiou]/i.test(char)).length;
   }
-  return res.join("");
 }
-
-console.log(fakeBin("45385593107843568"));
+console.log(Kata.getCount("Hello World"));
