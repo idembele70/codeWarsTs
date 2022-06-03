@@ -1,6 +1,10 @@
-class Kata {
-  static getCount(str: string): number {
-    return [...str].filter((char) => /[aeiou]/i.test(char)).length;
-  }
-}
-console.log(Kata.getCount("Hello World"));
+console.log(
+  (function isTriangle(a: number, b: number, c: number): boolean {
+    const biggestSide = Math.max(a, b, c);
+    const sumOfSmaller = [a, b, c]
+      .sort((a, b) => a - b)
+      .slice(0, -1)
+      .reduce((acc, cur) => acc + cur, 0);
+    return biggestSide < sumOfSmaller;
+  })(1, 10, 9)
+);
