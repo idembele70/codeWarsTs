@@ -1,7 +1,4 @@
 "use strict";
 console.log((function oddCount(n) {
-    if (n % 2 === 1)
-        return (n - 1) / 2;
-    else
-        return n / 2;
+    return (n % 2 === 0 ? n : n - 1) / 2;
 })(74556));
