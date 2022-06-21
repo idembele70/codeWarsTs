@@ -1,11 +1,17 @@
-const longest = (s1: string, s2: string): string => {
-  return s1
-    .concat(s2)
-    .split("")
-    .filter((letter, idx, arr) => idx === arr.indexOf(letter))
-    .sort()
-    .join("");
-};
-const a: string = "xyaabbbccccdefww";
-const b: string = "xxxxyyyyabklmopq";
-console.log(longest(a, b));
+console.log(
+  (function switchItUp(intNumber: number): string {
+    const numbers: { [key: number]: string } = {
+      0: "Zero",
+      1: "One",
+      2: "Two",
+      3: "Three",
+      4: "Four",
+      5: "Five",
+      6: "Six",
+      7: "Seven",
+      8: "Eight",
+      9: "Nine",
+    };
+    return numbers[intNumber];
+  })(1)
+);
