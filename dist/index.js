@@ -1,6 +1,12 @@
 "use strict";
-console.log((function validatePin(pin) {
-    const pinLength = pin.length;
-    const isValidePin = pin.replace(/[^0-9]/, "").length === pin.length;
-    return [4, 6].indexOf(pinLength) !== -1 && isValidePin;
-})("-12345"));
+const longest = (s1, s2) => {
+    return s1
+        .concat(s2)
+        .split("")
+        .filter((letter, idx, arr) => idx === arr.indexOf(letter))
+        .sort()
+        .join("");
+};
+const a = "xyaabbbccccdefww";
+const b = "xxxxyyyyabklmopq";
+console.log(longest(a, b));
