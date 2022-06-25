@@ -1,27 +1,11 @@
-function isSumOfCubes(s: string): string {
-  const arrayOfNumber = s.split(/\D/).filter((v) => v !== "");
-  const tabsOfNumber: string[] = [];
-  arrayOfNumber.map((v) =>
-    v
-      .replace(/\d{3}/gi, "$& ")
-      .trim()
-      .split(" ")
-      .forEach((num) => tabsOfNumber.push(num.replace(/^00/, "")))
-  );
-  const cubicNumber = tabsOfNumber.filter(isCubic);
-  const totalOfCubicNumber = cubicNumber.reduce((acc, cur) => {
-    return acc + parseInt(cur);
-  }, 0);
-  if (cubicNumber.length)
-    return `${cubicNumber.join(" ")} ${totalOfCubicNumber} Lucky`;
-  return "Unlucky";
+function inArray(a1: string[], a2: string[]): Array<string> {
+  const r: string[] = [];
+  a1.forEach((str) => {
+    if (a2.find((a2str) => a2str.indexOf(str) !== -1)) r.push(str);
+  });
+  return r.sort();
 }
-const isCubic = (s: string): boolean => {
-  return (
-    String(s)
-      .split("")
-      .reduce((acc, cur) => acc + parseInt(cur) ** 3, 0) === parseInt(s)
-  );
-};
+var a2: string[] = ["lively", "alive", "harp", "sharp", "armstrong"];
 
-console.log(isSumOfCubes(`153000153407000407`));
+var a1: string[] = ["arp", "live", "strong"];
+console.log(inArray(a1, a2));
