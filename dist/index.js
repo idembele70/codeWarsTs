@@ -1,8 +1,10 @@
 "use strict";
 function inArray(a1, a2) {
     const r = [];
+    const a2ToStr = a2.join(" ");
     a1.forEach((str) => {
-        if (a2.find((a2str) => a2str.indexOf(str) !== -1))
+        const strRegex = new RegExp(str, "ig");
+        if (strRegex.test(a2ToStr))
             r.push(str);
     });
     return r.sort();
