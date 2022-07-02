@@ -1,13 +1,25 @@
-function inArray(a1: string[], a2: string[]): Array<string> {
-  const r: string[] = [];
-  const a2ToStr: string = a2.join(" ");
-  a1.forEach((str) => {
-    const strRegex: RegExp = new RegExp(str, "ig");
-    if (strRegex.test(a2ToStr)) r.push(str);
+function splitAllEvenNumbers(numbers: number[], way: number): number[] {
+  const newNumbers: number[] = [];
+  numbers.forEach((num) => {
+    if (num % 2 === 0) {
+      const middle: number = num / 2;
+      if (way === 0) {
+        if (middle % 2 !== 0) newNumbers.push(middle, middle);
+        else newNumbers.push(middle - 1, middle + 1);
+      } else if (way === 1) {
+        newNumbers.push(1, num - 1);
+      } else if (way === 2) {
+        let highestOddFromNum: number = middle;
+        while (highestOddFromNum % 2 === 0) {
+          highestOddFromNum /= 2;
+        }
+        newNumbers.push(
+          ...Array(num / highestOddFromNum).fill(highestOddFromNum)
+        );
+      } else newNumbers.push(...Array(num).fill(1));
+    } else newNumbers.push(num);
   });
-  return r.sort();
+  return newNumbers;
 }
-var a2: string[] = ["lively", "alive", "harp", "sharp", "armstrong"];
 
-var a1: string[] = ["arp", "live", "strong"];
-console.log(inArray(a1, a2));
+console.log(splitAllEvenNumbers([1, 10, 1, 3], 3));
