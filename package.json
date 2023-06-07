@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "ts-node-dev --respawn --transpile-only src"
+  },
   "devDependencies": {
     "nodemon": "^2.0.16",
     "typescript": "^4.6.4"
