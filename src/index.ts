@@ -8,3 +8,5 @@ function maskify(cc: string): string {
 }
 
 console.log(maskify("######################yzr3"))
+console.log(maskify("64607935616"))
+console.log(maskify("1"))
