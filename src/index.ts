@@ -1,15 +1,37 @@
 function longestConsec(strarr: string[], k: number): string {
-  const strarrSorted = strarr.slice().sort((a, b) => b.length - a.length);
-  const longestArr = strarrSorted.slice(0, k);
-  const isSameLength = longestArr
-    .map((word) => word.length)
-    .filter((w, i) => w !== longestArr[i + 1]?.length || 0);
-  console.log(isSameLength);
-  // if (isSameLength === 0)
-  //   return ''
-  // else if (strarrSorted[1].length === strarrSorted[2].length)
-  //   return longestArr[0]
-  return longestArr.join('');
-}
+  const strarrWTDuplicate: string[] = []
+  strarr.forEach(el => {
+    const currentDuplicate =
+      strarrWTDuplicate.find(strarrEl => strarrEl.length === el.length)
+    if (currentDuplicate) {
+      const idx =
+        strarrWTDuplicate.findIndex(strarrEl => strarrEl.length === el.length)
+      if (idx >= 0)
+        strarrWTDuplicate[idx] = el
 
-console.log(longestConsec(['toto', 'titi', 'tata', 'mimi'], 2)); //  abigailtheta
+    } else
+      strarrWTDuplicate.push(el)
+  })
+  const sortedWord = strarrWTDuplicate.slice().sort(
+    (a, b) => b.length - a.length
+  ).slice(0, k)
+  console.log(sortedWord)
+  const longestWord = []
+  for (const item of strarrWTDuplicate) {
+    if (sortedWord.includes(item))
+      longestWord.push(item)
+  }
+  return longestWord.join('')
+}
+const result0 = ["zone", "abigail", "theta", "form", "libe", "zas"]
+const nbr0 = 2
+const result1 = ["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"]
+const nbr1 = 1
+const result2 = [
+  'itvayloxrp',
+  'wkppqsztdkmvcuwvereiupccauycnjutlv',
+  'vweqilsfytihvrzlaodfixoyxvyuyvgpck'
+]
+const nbr2 = 2
+
+console.log(longestConsec(result2, nbr2)); //  abigailtheta
