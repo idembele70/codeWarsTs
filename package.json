@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only src"
+    "start:ts": "ts-node-dev --respawn --transpile-only src",
+    "start:js": "nodemon dist"
   },
   "devDependencies": {
     "nodemon": "^2.0.16",
