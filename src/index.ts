@@ -1,5 +1,9 @@
-function createPhoneNumber(numbers: number[]): string {
-  return numbers.join('').replace(/(.{3})(.{3})(.*)/, '($1) $2-$3')
+function toBase64(str: string): string {
+  // Encode this string to Base64
+  return btoa(str)
 }
-
-console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+function fromBase64(str: string): string {
+  return atob(str)
+}
+console.log(toBase64("this is a string!!"))
+console.log(fromBase64("dGhpcyBpcyBhIHN0cmluZyEh"))
